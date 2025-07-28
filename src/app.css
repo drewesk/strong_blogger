@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+header {
+  background-image: url("./star.svg");
+}
+
 body {
   background: #000;
 }
