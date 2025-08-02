@@ -54,8 +54,8 @@ const Home = () => {
         <Button type="submit" className="w-full">
           Login
         </Button>
-        <Button variant="outline" className="w-full">
-          Login with Google
+        <Button variant="outline" className="w-full" asChild>
+          <a href="http://localhost:3000/auth/google">Login with Google</a>
         </Button>
       </CardFooter>
     </Card>
