@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -19,22 +19,11 @@ const blogRouter = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "blog", element: <Blog /> },
       { path: "blog/:slug", element: <Post /> },
-      { path: "*", element: <NotFound /> },
       { path: "auth/success", element: <AuthSuccess /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
-
-useEffect(() => {
-  fetch("http://localhost:3000/me", {
-    credentials: "include",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Logged in user:", data.user);
-      // Save to context or state
-    });
-}, []);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

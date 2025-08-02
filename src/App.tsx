@@ -1,7 +1,20 @@
+import { useEffect } from "react";
+
 import { Outlet } from "react-router-dom";
 import "./app.css";
 
 const App = () => {
+  useEffect(() => {
+    fetch("http://localhost:3000/me", {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Logged in user:", data.user);
+        // Save to context or state
+      });
+  }, []);
+
   return (
     <div className="dark min-h-screen bg-background text-foreground flex flex-col">
       <header className="p-6 text-center">
