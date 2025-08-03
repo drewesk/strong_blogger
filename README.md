@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# Strong Blogger Client // Update me fully when done
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend client for **Strong Blogger**, a modern, visually engaging blogging platform built with React and Vite. It supports secure OAuth authentication, a sleek UI with Tailwind CSS and ShadCN components, and dynamic features such as live counters and animated sections.
 
-Currently, two official plugins are available:
+## 🧱 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** with **Vite** – Fast frontend tooling and development experience
+- **Tailwind CSS** – Utility-first styling
+- **ShadCN UI** – Prebuilt accessible components
+- **React Router** – SPA routing
+- **Axios** – API communication with the backend
+- **Framer Motion** – Animation and transitions
+- **CountUp.js / react-countup** – Animated counters (for blog stats or impact counters)
 
-## Expanding the ESLint configuration
+## 🎯 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Animated landing page for audience engagement
+- OAuth login via Google & GitHub (handled via backend)
+- Session-based user state synced with backend
+- Live updating UI (e.g. blog post counts, donation counters)
+- SPA-style navigation with smooth transitions
+- Responsive layout for desktop and mobile
+- SEO-ready page structure and meta tags
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+strong-blogger-client/
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Page views (Home, Login, Dashboard, etc.)
+│   ├── api/               # Axios API utilities
+│   ├── App.tsx            # Root component with routes
+│   └── main.tsx           # Entry point
+├── public/                # Static assets
+├── tailwind.config.js     # Tailwind configuration
+├── vite.config.ts         # Vite config
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Setup Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone https://github.com/yourusername/strong-blogger-client.git
+   cd strong-blogger-client
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Environment Setup**  
+   Create a `.env` file if needed:
+   ```
+   VITE_API_URL=http://localhost:3000
+   ```
+
+## 🔐 OAuth Flow
+
+OAuth login is triggered via routes (e.g. `/auth/google`) which redirect to the backend server. The backend handles authentication and session cookies.
+
+## 🌐 SEO Tips
+
+- Use `<Helmet>` (or manually set `<meta>` tags) for each route.
+- Preload images and important assets.
+- Use semantic HTML and ARIA roles.
+
+## 🧪 Testing (Optional / Planned)
+
+- Unit tests with **Vitest** or **Jest**
+- Component tests with **React Testing Library**
+
+---
+
+Built with ❤️ by Drew (Andrew Eskenazi)
